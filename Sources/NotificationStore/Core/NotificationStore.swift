@@ -59,7 +59,7 @@ public struct NotificationStore: Sendable {
                 SELECT a.identifier, a.badge, COUNT(r.rec_id) FROM app a LEFT JOIN record r ON r.app_id = a.app_id
                 GROUP BY a.app_id ORDER BY COUNT(r.rec_id) DESC, a.identifier
                 """) { row in
-                guard let identifier = row[0].string, !identifier.isEmpty else { return }
+                guard let identifier = row[0].nonEmptyString else { return }
                 apps.append(NotifyingApp(identifier: identifier, badge: row[1].int, held: row[2].int ?? 0))
             }
         } catch { throw NotificationStoreError(error) }
