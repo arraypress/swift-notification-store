@@ -35,7 +35,7 @@ let waiting = NotificationFilter(since: Date().addingTimeInterval(-7_200), exclu
 
 ## Requirements
 
-macOS 14 or later. Swift 6.2. No dependencies.
+macOS 14 or later. Swift 6.2. One dependency: [swift-sqlite-reader](https://github.com/arraypress/swift-sqlite-reader), which makes the private copy and reads it.
 
 ## Licence
 
